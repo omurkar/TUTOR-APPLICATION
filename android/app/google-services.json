@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "595801691996",
+    "firebase_url": "https://tutorapp-9b2ec-default-rtdb.firebaseio.com",
+    "project_id": "tutorapp-9b2ec",
+    "storage_bucket": "tutorapp-9b2ec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595801691996:android:7eb85445368ee017fd9399",
+        "android_client_info": {
+          "package_name": "com.nextsolves.tutor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595801691996-1ff5utnst3r1f4p6ipqt6it9k2bfgdmt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nextsolves.tutor",
+            "certificate_hash": "53fc2a32d24e72d92e27123d15e1518191274cc7"
+          }
+        },
+        {
+          "client_id": "595801691996-j0t7e5glulr94mg95gfbfnobngtas2kt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfGoydLPaO4mPocU_S-HNSrvoTgU8lnSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595801691996-j0t7e5glulr94mg95gfbfnobngtas2kt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "595801691996-kh3pnjud876b5jdbvqc082tgaul7uu0j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nextsolves.tutor.tutorApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595801691996:android:dcb4f2f4485be061fd9399",
+        "android_client_info": {
+          "package_name": "com.nextsolves.tutor.tutor_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595801691996-j0t7e5glulr94mg95gfbfnobngtas2kt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfGoydLPaO4mPocU_S-HNSrvoTgU8lnSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595801691996-j0t7e5glulr94mg95gfbfnobngtas2kt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "595801691996-kh3pnjud876b5jdbvqc082tgaul7uu0j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nextsolves.tutor.tutorApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

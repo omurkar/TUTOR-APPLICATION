@@ -1,0 +1,9 @@
+@'
+android/app/build/
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+'@ | Out-File -Encoding UTF8 .gitignore
