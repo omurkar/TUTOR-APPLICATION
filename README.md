@@ -45,12 +45,25 @@ Experience a seamless, modern way to teach and learn with the **Yuva UI** design
 ---
 
 ## 📸 Screenshots
+LOGIN PAGE 
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/05c9c890-615a-49c7-a759-70ef77d34148" />
 
-| Student Home | Tutor Dashboard | Chat Screen |
-|:---:|:---:|:---:|
-| <img src="assets/images/tnmlogo.png" width="200" alt="Logo"> | *(Add screenshot here)* | *(Add screenshot here)* |
+STUDENT LOGIN PAGE 
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/76bad785-882e-406a-a8d3-32f59a8ffd4b" />
 
----
+
+STUDENT DASHBORD 
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/b77a2969-46f1-4b2b-a51a-b00ca1317afd" />
+
+
+MASSAGE PAGE 
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/3ecc6c29-d5ff-4bde-83a1-95a1a1fd13fa" />
+
+TUTOR DASHBORD 
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/9a7aeee2-5b73-4ceb-a200-3ba5bd88fdc7" />
+
+
+
 
 ## 🚀 Getting Started
 
