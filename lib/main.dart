@@ -5,14 +5,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 // Import Screens
 import 'firebase_options.dart';
-import 'screens/common/role_selection.dart'; // Fixed Path
+import 'screens/common/role_selection.dart';
 import 'screens/auth/student_login.dart';
 import 'screens/auth/student_signup.dart';
-import 'screens/tutor/tutor_login.dart'; // Fixed Path
-import 'screens/tutor/tutor_signup.dart'; // Fixed Path
+import 'screens/tutor/tutor_login.dart';
+import 'screens/tutor/tutor_signup.dart';
 import 'screens/student/student_dashboard.dart';
 import 'screens/tutor/tutor_dashboard.dart';
 import 'screens/student/profile_setup.dart';
+import 'screens/tutor/tutor_profile_setup.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/student_dashboard': (context) => const StudentDashboard(),
         '/tutor_dashboard': (context) => const TutorDashboard(),
         '/student_profile_setup': (context) => const StudentProfileSetupScreen(),
+        '/tutor_profile_setup': (context) => const TutorProfileSetupScreen(),
       },
     );
   }
@@ -73,11 +75,15 @@ class AuthWrapper extends StatelessWidget {
               if (userSnapshot.hasData && userSnapshot.data!.exists) {
                 var userData = userSnapshot.data!.data() as Map<String, dynamic>;
                 String role = userData['role'] ?? 'student';
+                bool isComplete = userData['isProfileComplete'] ?? false;
 
                 if (role == 'tutor') {
-                  return const TutorDashboard();
+                  if (isComplete) {
+                    return const TutorDashboard();
+                  } else {
+                    return const TutorProfileSetupScreen();
+                  }
                 } else {
-                  bool isComplete = userData['isProfileComplete'] ?? false;
                   if (isComplete) {
                     return const StudentDashboard();
                   } else {

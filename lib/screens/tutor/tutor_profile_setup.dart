@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:geolocator/geolocator.dart'; // Added Import
-import 'package:geocoding/geocoding.dart';   // Added Import
+import 'package:geolocator/geolocator.dart';
+import 'package:geocoding/geocoding.dart';
 
 class TutorProfileSetupScreen extends StatefulWidget {
+  const TutorProfileSetupScreen({super.key}); // Added const constructor
+
   @override
   State<TutorProfileSetupScreen> createState() => _TutorProfileSetupScreenState();
 }
@@ -18,14 +20,12 @@ class _TutorProfileSetupScreenState extends State<TutorProfileSetupScreen> {
 
   bool isOnline = false;
   bool isOffline = false;
-  bool _isLoading = false; // Added for Location Loading State
+  bool _isLoading = false;
 
-  // Availability map (Monday to Sunday)
   final Map<String, bool> _availability = {
     "Mon": false, "Tue": false, "Wed": false, "Thu": false, "Fri": false, "Sat": false, "Sun": false
   };
 
-  // --- NEW: Function to Get Current Location ---
   Future<void> _getCurrentLocation() async {
     setState(() => _isLoading = true);
     try {
@@ -63,11 +63,11 @@ class _TutorProfileSetupScreenState extends State<TutorProfileSetupScreen> {
       User? user = FirebaseAuth.instance.currentUser;
       if (user != null) {
         await FirebaseFirestore.instance.collection('users').doc(user.uid).update({
-          'location': _location.text.trim(), // Save Location
-          'hourlyRate': _rate.text.trim(),   // Save Rate
+          'location': _location.text.trim(),
+          'hourlyRate': _rate.text.trim(),
           'bio': _bio.text.trim(),
           'qualification': _qual.text.trim(),
-          'subjects': _subjects.text.trim(), // You might want to split this into a list later
+          'subjects': _subjects.text.trim(),
           'isOnline': isOnline,
           'isOffline': isOffline,
           'availability': _availability,
@@ -86,7 +86,6 @@ class _TutorProfileSetupScreenState extends State<TutorProfileSetupScreen> {
       barrierDismissible: false,
       builder: (context) => AlertDialog(
         content: Column(mainAxisSize: MainAxisSize.min, children: [
-          // If you add a Lottie file later, replace this Icon with Lottie.asset(...)
           const Icon(Icons.check_circle_outline, color: Colors.green, size: 80),
           const SizedBox(height: 20),
           const Text("Account Created!", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
@@ -109,11 +108,7 @@ class _TutorProfileSetupScreenState extends State<TutorProfileSetupScreen> {
           children: [
             const Text("Basic Details", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 15),
-
-            // --- Location Field ---
             TextField(controller: _location, decoration: const InputDecoration(labelText: "Location (City/Area)", border: OutlineInputBorder(), prefixIcon: Icon(Icons.location_on))),
-
-            // --- NEW: Use Current Location Button ---
             Align(
               alignment: Alignment.centerLeft,
               child: TextButton.icon(
@@ -124,11 +119,9 @@ class _TutorProfileSetupScreenState extends State<TutorProfileSetupScreen> {
                 label: const Text("Use Current Location", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold)),
               ),
             ),
-
             const SizedBox(height: 15),
             TextField(controller: _rate, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: "Hourly Rate (₹)", border: OutlineInputBorder(), prefixIcon: Icon(Icons.currency_rupee))),
             const SizedBox(height: 20),
-
             const Text("Professional Details", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 15),
             TextField(controller: _bio, maxLines: 3, decoration: const InputDecoration(labelText: "Bio (About You)", border: OutlineInputBorder())),
@@ -137,11 +130,9 @@ class _TutorProfileSetupScreenState extends State<TutorProfileSetupScreen> {
             const SizedBox(height: 15),
             TextField(controller: _subjects, decoration: const InputDecoration(labelText: "Subjects (comma separated)", border: OutlineInputBorder())),
             const SizedBox(height: 15),
-
             const Text("Teaching Mode", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             CheckboxListTile(title: const Text("Online Mode"), value: isOnline, onChanged: (v) => setState(() => isOnline = v!)),
             CheckboxListTile(title: const Text("Offline Mode"), value: isOffline, onChanged: (v) => setState(() => isOffline = v!)),
-
             const SizedBox(height: 15),
             const Text("Weekly Availability", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             Wrap(
@@ -152,7 +143,6 @@ class _TutorProfileSetupScreenState extends State<TutorProfileSetupScreen> {
                 onSelected: (v) => setState(() => _availability[day] = v),
               )).toList(),
             ),
-
             const SizedBox(height: 30),
             SizedBox(width: double.infinity, height: 50, child: ElevatedButton(onPressed: _saveTutorProfile, child: const Text("Save & Finish"))),
           ],
